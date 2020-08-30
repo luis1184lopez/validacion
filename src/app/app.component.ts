@@ -18,8 +18,8 @@ export class AppComponent {
   createForm() {
     console.log("AppComponent::createForm");
     this.angForm = this.fb.group({
-      name: ["", [Validators.required, Validators.maxLength(5)]],
-      surname: ["", Validators.required]
+      name: ["", [Validators.required, Validators.pattern('^([0-9][0-9]{0,1}|100)$')]],
+      surname: ["", [Validators.required, Validators.pattern('^www(.*\.(net$|com$|org$))') ]]
     });
 
     this.angForm.controls["name"].valueChanges.subscribe(data => {
